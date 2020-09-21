@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "docker-compose up --build && yarn install && yarn next build && yarn next start"
+    "start": "yarn next build && yarn next start"
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
