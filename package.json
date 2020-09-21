@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "yarn install --force && yarn next dev"
+    "start": "yarn install && next build && next start"
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
