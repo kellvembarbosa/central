@@ -3,7 +3,8 @@ import store from 'store'
 import { notification } from 'antd'
 
 const apiClient = axios.create({
-  baseURL: '/api',
+  baseURL: 'http://188.82.118.155:1337',
+  // baseURL: '/api',
   // timeout: 1000,
   // headers: { 'X-Custom-Header': 'foobar' }
 })
@@ -17,14 +18,18 @@ apiClient.interceptors.request.use(request => {
   return request
 })
 
-apiClient.interceptors.response.use(undefined, error => {
+apiClient.interceptors.response.use(undefined, errorResponse => {
   // Errors handling
-  const { response } = error
+  const { response } = errorResponse
   const { data } = response
   if (data) {
-    notification.warning({
-      message: data,
-    })
+    const { error, message } = data
+
+    if (error || message) {
+      notification.warning({
+        message: error != null ? error : data,
+      })
+    }
   }
 })
 

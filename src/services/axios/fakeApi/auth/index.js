@@ -75,6 +75,7 @@ mock.onGet('/api/auth/account').reply(request => {
       expiresIn: jwtConfig.expiresIn,
     }) // refresh jwt token
 
+    console.log('userData', userData)
     return [200, userData]
   }
 
